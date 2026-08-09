@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Demo Step 1</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding: 80px 20px 120px;
+      text-align: center;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .page h1 {
+      font-size: 34px;
+      margin: 0;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 88px;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .nav-btn {
+      border: none;
+      background: transparent;
+      color: #999;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .nav-btn.active {
+      color: #78b81c;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="home" class="page active">
+    <h1>首頁</h1>
+  </section>
+
+  <section id="points" class="page">
+    <h1>輕鬆分</h1>
+  </section>
+
+  <section id="payment" class="page">
+    <h1>輕鬆付</h1>
+  </section>
+
+  <section id="question" class="page">
+    <h1>輕鬆問</h1>
+  </section>
+
+  <section id="profile" class="page">
+    <h1>個人</h1>
+  </section>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="showPage('home', this)">首頁</button>
+    <button class="nav-btn" onclick="showPage('points', this)">輕鬆分</button>
+    <button class="nav-btn" onclick="showPage('payment', this)">輕鬆付</button>
+    <button class="nav-btn" onclick="showPage('question', this)">輕鬆問</button>
+    <button class="nav-btn" onclick="showPage('profile', this)">個人</button>
+  </nav>
+
+  <script>
+    function showPage(pageId, button) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      document.getElementById(pageId).classList.add('active');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+    }
+  </script>
+</body>
+</html>
