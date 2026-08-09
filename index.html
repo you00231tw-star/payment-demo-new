@@ -150,7 +150,9 @@
 /* 首頁內容 */
 
 .home-content {
-  padding: 38px 26px;
+
+  padding:
+    40px 28px 40px 28px;
 }
 
 
@@ -169,17 +171,21 @@
 /* 黑色消息卡 */
 
 .news-card {
-  min-height: 120px;
 
-  border-radius: 15px;
+  width: 100%;
 
-  padding: 20px 18px;
+  height: 112px;
+
+  border-radius: 13px;
+
+  padding: 17px 16px;
 
   background:
     linear-gradient(
-      120deg,
-      #07090d,
-      #10243d
+      110deg,
+      #07090d 0%,
+      #101a29 55%,
+      #102c4a 100%
     );
 
   color: white;
@@ -191,29 +197,38 @@
   align-items: center;
 
   box-shadow:
-    0 5px 12px
-    rgba(0,0,0,0.20);
+    0 4px 10px
+    rgba(0,0,0,0.22);
 }
 
 
 .news-title {
-  font-size: 21px;
 
-  margin-bottom: 15px;
+  font-size: 19px;
+
+  font-weight: 400;
+
+  margin-bottom: 13px;
 }
 
 
 .news-description {
-  font-size: 14px;
 
-  line-height: 1.6;
+  font-size: 13px;
+
+  line-height: 1.55;
+
+  font-weight: 400;
 }
 
 
 .news-lock {
-  font-size: 40px;
 
-  margin-right: 12px;
+  font-size: 37px;
+
+  margin-right: 14px;
+
+  flex-shrink: 0;
 }
 
 
