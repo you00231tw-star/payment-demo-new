@@ -54,6 +54,269 @@
       color: #78b81c;
       font-weight: 700;
     }
+    /* ===== 首頁外觀 ===== */
+
+#home {
+  padding: 0 0 110px 0;
+  text-align: left;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+
+/* 黃色頂部 */
+
+.home-header {
+  height: 210px;
+  background: #fff995;
+
+  border-radius:
+    0 0 50% 50% /
+    0 0 30% 30%;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  padding-bottom: 48px;
+
+  box-shadow:
+    0 4px 8px
+    rgba(0,0,0,0.12);
+}
+
+
+/* EasyPay */
+
+.home-logo {
+  font-size: 34px;
+
+  font-weight: 900;
+
+  color: #67ad19;
+}
+
+
+/* 右邊喇叭 */
+
+.home-notice-icon {
+  position: absolute;
+
+  right: 18px;
+  bottom: 30px;
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+
+  background: #fffef1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+
+  box-shadow:
+    0 3px 8px
+    rgba(0,0,0,0.08);
+}
+
+
+/* 首頁內容 */
+
+.home-content {
+  padding: 38px 26px;
+}
+
+
+/* 最新消息 / 最新活動 */
+
+.home-content h2 {
+  text-align: center;
+
+  font-size: 25px;
+
+  margin:
+    0 0 18px 0;
+}
+
+
+/* 黑色消息卡 */
+
+.news-card {
+  min-height: 120px;
+
+  border-radius: 15px;
+
+  padding: 20px 18px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #07090d,
+      #10243d
+    );
+
+  color: white;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  box-shadow:
+    0 5px 12px
+    rgba(0,0,0,0.20);
+}
+
+
+.news-title {
+  font-size: 21px;
+
+  margin-bottom: 15px;
+}
+
+
+.news-description {
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+.news-lock {
+  font-size: 40px;
+
+  margin-right: 12px;
+}
+
+
+/* 兩個小圓點 */
+
+.slider-dots {
+  height: 42px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.slider-dots span {
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background: #d7eab6;
+}
+
+
+.slider-dots span:first-child {
+  background: #74b51d;
+}
+
+
+/* 活動卡片 */
+
+.activity-card {
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 18px;
+
+  margin-bottom: 30px;
+
+  box-shadow:
+    0 3px 14px
+    rgba(0,0,0,0.14);
+}
+
+
+.activity-title {
+  color: #70b329;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  line-height: 1.4;
+}
+
+
+.activity-date {
+  color: #888888;
+
+  font-size: 17px;
+
+  margin:
+    5px 0 15px 0;
+}
+
+
+/* 暫時的活動圖片 */
+
+.activity-image {
+  height: 175px;
+
+  border: 5px double #4d7542;
+
+  background: #fffdf0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  font-size: 25px;
+
+  font-weight: bold;
+
+  line-height: 1.7;
+}
+
+
+.activity-image.dark {
+  height: 130px;
+
+  background: #142338;
+
+  color: white;
+
+  border: none;
+}
+
+
+/* ===== 底部導覽調整 ===== */
+
+.bottom-nav {
+  max-width: 430px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 100;
+}
   </style>
 </head>
 
