@@ -1142,6 +1142,229 @@
 
   margin-bottom: 20px;
 }
+    /* =========================
+   超商繳款
+========================= */
+
+.store-payment-page {
+
+  display: none;
+
+  position: fixed;
+
+  z-index: 900;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  max-width: 430px;
+
+  height: 100vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  padding-bottom: 100px;
+}
+
+
+/* 黃色頂部 */
+
+.store-header {
+
+  height: 145px;
+
+  background: #fff995;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  padding-bottom: 25px;
+
+  position: relative;
+}
+
+
+.store-title {
+
+  color: #174f83;
+
+  font-size: 29px;
+
+  font-weight: bold;
+}
+
+
+/* 返回 */
+
+.store-back {
+
+  position: absolute;
+
+  left: 18px;
+
+  bottom: 19px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #174f83;
+
+  font-size: 43px;
+}
+
+
+/* 期數 */
+
+.store-period {
+
+  text-align: center;
+
+  font-size: 23px;
+
+  font-weight: bold;
+
+  padding: 16px 0 30px 0;
+}
+
+
+.period-next {
+
+  border: none;
+
+  background: transparent;
+
+  color: #111;
+
+  font-size: 25px;
+
+  margin-left: 12px;
+}
+
+
+/* 基本資料 */
+
+.store-info {
+
+  padding: 0 52px;
+
+  font-size: 16px;
+
+  line-height: 1.55;
+}
+
+
+.store-info div {
+
+  display: grid;
+
+  grid-template-columns:
+    90px 20px 1fr;
+}
+
+
+/* 展示條碼 */
+
+.demo-barcode {
+
+  height: 83px;
+
+  margin:
+    22px 27px 0;
+
+  background:
+
+    repeating-linear-gradient(
+      90deg,
+      #111 0px,
+      #111 3px,
+      #fff 3px,
+      #fff 6px,
+      #111 6px,
+      #111 8px,
+      #fff 8px,
+      #fff 13px
+    );
+}
+
+
+.barcode-text {
+
+  text-align: center;
+
+  font-size: 19px;
+
+  margin-top: 2px;
+}
+
+
+/* 超商區 */
+
+.store-logos {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 5px;
+
+  padding: 25px 8px 10px;
+}
+
+
+.store-logos div {
+
+  height: 65px;
+
+  border: 1px solid #ddd;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  text-align: center;
+}
+
+
+.store-note {
+
+  padding: 0 7px;
+
+  font-size: 18px;
+
+  line-height: 1.4;
+}
+
+
+.store-note strong {
+
+  font-size: 21px;
+}
+
+
+.store-note span {
+
+  color: #999;
+
+  font-size: 16px;
+}
   </style>
 </head>
 
@@ -1254,6 +1477,165 @@
   
 
 <section id="payment" class="page">
+
+  <!-- =========================
+     超商繳款頁面
+========================= -->
+
+<div
+  id="storePaymentPage"
+  class="store-payment-page"
+>
+
+  <!-- 黃色標題 -->
+
+  <div class="store-header">
+
+    <button
+      class="store-back"
+      onclick="closeStorePayment()"
+    >
+      〈
+    </button>
+
+    <div class="store-title">
+      超商繳款
+    </div>
+
+  </div>
+
+
+  <!-- 期數 -->
+
+  <div class="store-period">
+
+    期數：
+    <span id="storeCurrentPeriod">
+      48
+    </span>
+    /
+    <span id="storeTotalPeriod">
+      60
+    </span>
+    期
+
+    <button
+      class="period-next"
+      onclick="nextStoreBill()"
+    >
+      ▶
+    </button>
+
+  </div>
+
+
+  <!-- 基本資料 -->
+
+  <div class="store-info">
+
+    <div>
+      <span>姓　　名</span>
+      <b>：</b>
+      <span id="storeName">曾＊霖</span>
+    </div>
+
+    <div>
+      <span>合約編號</span>
+      <b>：</b>
+      <span id="storeContract">DEMO0519</span>
+    </div>
+
+    <div>
+      <span>期　　數</span>
+      <b>：</b>
+      <span id="storePeriodInfo">48/60</span>
+    </div>
+
+    <div>
+      <span>應繳金額</span>
+      <b>：</b>
+      $<span id="storeAmount">7,138</span>
+    </div>
+
+  </div>
+
+
+  <!-- DEMO 條碼 -->
+
+  <div class="demo-barcode"></div>
+
+  <div
+    id="barcodeText1"
+    class="barcode-text"
+  >
+    DEMO-160921
+  </div>
+
+
+  <div class="demo-barcode"></div>
+
+  <div
+    id="barcodeText2"
+    class="barcode-text"
+  >
+    DEMO-799130
+  </div>
+
+
+  <div class="demo-barcode"></div>
+
+  <div
+    id="barcodeText3"
+    class="barcode-text"
+  >
+    DEMO-7138
+  </div>
+
+
+  <!-- 超商 Logo 用文字版先定位 -->
+
+  <div class="store-logos">
+
+    <div>
+      7-ELEVEN
+    </div>
+
+    <div>
+      FamilyMart
+    </div>
+
+    <div>
+      OK MART
+    </div>
+
+    <div>
+      Hi-Life
+    </div>
+
+  </div>
+
+
+  <div class="store-note">
+
+    <b>
+      便利超商繳款
+    </b>
+
+    <br>
+
+    <strong>
+      櫃台出示付款
+    </strong>
+
+    <br><br>
+
+    <span>
+      （展示版本，條碼不可用於實際付款）
+    </span>
+
+  </div>
+
+</div>
 
   <!-- 黃色標題 -->
   <div class="payment-header">
@@ -1451,9 +1833,9 @@
       onclick="event.stopPropagation()"
     >
 
-      <button>
-        超商繳款
-      </button>
+<button onclick="openStorePayment()">
+  超商繳款
+</button>
 
       <button>
         郵局繳款
@@ -2294,6 +2676,63 @@ if (savedHistory) {
     
   }
 );
+    let storeBillIndex = 0;
+
+
+function openStorePayment() {
+
+  closePaymentMenu();
+
+  document
+    .getElementById("storePaymentPage")
+    .style
+    .display = "block";
+
+}
+
+
+function closeStorePayment() {
+
+  document
+    .getElementById("storePaymentPage")
+    .style
+    .display = "none";
+
+}
+
+
+/* 點黑色三角形切換期數 */
+
+function nextStoreBill() {
+
+  storeBillIndex =
+    storeBillIndex === 0 ? 1 : 0;
+
+
+  if (storeBillIndex === 0) {
+
+    document.getElementById(
+      "storeCurrentPeriod"
+    ).textContent = "48";
+
+    document.getElementById(
+      "storePeriodInfo"
+    ).textContent = "48/60";
+
+
+  } else {
+
+    document.getElementById(
+      "storeCurrentPeriod"
+    ).textContent = "49";
+
+    document.getElementById(
+      "storePeriodInfo"
+    ).textContent = "49/60";
+
+  }
+
+}
   </script>
 </body>
 </html>
