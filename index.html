@@ -371,6 +371,399 @@
   width: 100%;
   height: auto;
 }
+    /* =================================
+   輕鬆付
+================================= */
+
+#payment {
+
+  padding:
+    0 0 110px 0;
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  text-align: left;
+}
+
+
+/* 黃色標題 */
+
+.payment-header {
+
+  height: 145px;
+
+  background: #fff995;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  padding-bottom: 25px;
+
+  color: #174f83;
+
+  font-size: 29px;
+
+  font-weight: bold;
+}
+
+
+/* 繳款中心 / 延滯費用 */
+
+.payment-tabs {
+
+  height: 63px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  background: #eef8e3;
+}
+
+
+.payment-tab {
+
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  color: #8c8c8c;
+}
+
+
+.payment-tab.active {
+
+  color: #85b657;
+}
+
+
+.payment-tab.active::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+
+  width: 95px;
+
+  height: 4px;
+
+  background: #f2b200;
+}
+
+
+/* 銷帳提醒 */
+
+.payment-notice {
+
+  height: 78px;
+
+  background: #eef8e3;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 20px;
+
+  font-weight: bold;
+}
+
+
+/* 機車卡 */
+
+.payment-card {
+
+  margin:
+    29px 28px 0 28px;
+
+  padding:
+    20px 16px 16px 16px;
+
+  background: #faf5fd;
+
+  border:
+
+    1px solid #ded7e1;
+
+  border-radius: 18px;
+
+  box-shadow:
+
+    0 3px 7px
+    rgba(0,0,0,0.18);
+}
+
+
+/* 機車 */
+
+.vehicle-title {
+
+  color: #74b51d;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  margin-bottom: 5px;
+}
+
+
+/* 灰色資料 */
+
+.vehicle-info {
+
+  color: #8e8e8e;
+
+  font-size: 21px;
+
+  line-height: 1.45;
+}
+
+
+/* 截止日期 */
+
+.payment-deadline {
+
+  color: #000000;
+
+  font-size: 20px;
+
+  line-height: 1.5;
+
+  font-weight: bold;
+}
+
+
+/* 下面兩顆按鈕 */
+
+.payment-buttons {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-top: 8px;
+}
+
+
+.history-button,
+.pay-button {
+
+  min-width: 105px;
+
+  height: 43px;
+
+  border-radius: 15px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+}
+
+
+/* 繳款紀錄 */
+
+.history-button {
+
+  background: white;
+
+  color: #73b51c;
+
+  border:
+
+    3px solid #73b51c;
+}
+
+
+/* 立即繳款 */
+
+.pay-button {
+
+  background: #73b51c;
+
+  color: white;
+
+  border:
+
+    3px solid #73b51c;
+}
+
+
+/* =================================
+   彈出背景
+================================= */
+
+.payment-overlay {
+
+  display: none;
+
+  position: fixed;
+
+  z-index: 500;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background:
+    rgba(0,0,0,0.55);
+}
+
+
+/* =================================
+   繳款紀錄
+================================= */
+
+.history-panel {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 88px;
+
+  transform:
+    translateX(-50%);
+
+  width: 100%;
+
+  max-width: 430px;
+
+  height: 290px;
+
+  background: #faf5fd;
+
+  padding-top: 15px;
+}
+
+
+.history-title {
+
+  text-align: center;
+
+  color: #666666;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  padding:
+    0 10px 13px;
+}
+
+
+.history-row {
+
+  display: grid;
+
+  grid-template-columns:
+    0.7fr
+    1.3fr
+    1.3fr
+    1.2fr
+    1.2fr;
+
+  align-items: center;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  padding: 8px 4px;
+}
+
+
+.history-head {
+
+  background: #ffffff;
+
+  font-weight: bold;
+
+  font-size: 14px;
+}
+
+
+/* =================================
+   立即繳款選單
+================================= */
+
+.payment-menu {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 88px;
+
+  transform:
+    translateX(-50%);
+
+  width: 100%;
+
+  max-width: 430px;
+
+  background: #faf5fd;
+
+  border-radius:
+    28px 28px 0 0;
+
+  overflow: hidden;
+}
+
+
+.payment-menu button {
+
+  display: block;
+
+  width: 100%;
+
+  height: 72px;
+
+  padding-left: 28px;
+
+  border: 0;
+
+  border-bottom:
+    1px solid #999999;
+
+  background: #faf5fd;
+
+  text-align: left;
+
+  font-size: 23px;
+
+  color: #111111;
+}
   </style>
 </head>
 
@@ -482,9 +875,155 @@
 </section>
   
 
-  <section id="payment" class="page">
-    <h1>輕鬆付</h1>
-  </section>
+<section id="payment" class="page">
+
+  <!-- 黃色標題 -->
+  <div class="payment-header">
+    輕鬆付
+  </div>
+
+  <!-- 分頁 -->
+  <div class="payment-tabs">
+
+    <div class="payment-tab active">
+      繳款中心
+    </div>
+
+    <div class="payment-tab">
+      延滯費用
+    </div>
+
+  </div>
+
+  <!-- 提醒 -->
+  <div class="payment-notice">
+    銷帳約 3 個工作天，請保留憑證
+  </div>
+
+
+  <!-- 機車卡片 -->
+  <div class="payment-card">
+
+    <div class="vehicle-title">
+      機車
+    </div>
+
+    <div class="vehicle-info">
+      申請人：曾＊霖
+    </div>
+
+    <div class="vehicle-info">
+      車號：MBL-20**
+    </div>
+
+    <div class="vehicle-info">
+      本期期數：48 / 60期
+    </div>
+
+    <div class="vehicle-info">
+      本期應繳金額：$7,138
+    </div>
+
+    <div class="payment-deadline">
+      繳款截止日：2026.09.21
+    </div>
+
+
+    <div class="payment-buttons">
+
+      <button
+        class="history-button"
+        onclick="openHistory()"
+      >
+        繳款紀錄
+      </button>
+
+      <button
+        class="pay-button"
+        onclick="openPaymentMenu()"
+      >
+        立即繳款
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- 繳款紀錄 -->
+  <div
+    id="historyOverlay"
+    class="payment-overlay"
+    onclick="closeHistory()"
+  >
+
+    <div
+      class="history-panel"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="history-title">
+        繳款紀錄：僅列出最近1期已繳費記錄
+      </div>
+
+      <div class="history-row history-head">
+        <span>期數</span>
+        <span>應繳日期</span>
+        <span>實繳日期</span>
+        <span>應繳金額</span>
+        <span>實繳金額</span>
+      </div>
+
+      <div class="history-row">
+        <span>48</span>
+        <span>2026.09.21</span>
+        <span>-</span>
+        <span>$7,138</span>
+        <span>$636</span>
+      </div>
+
+      <div class="history-row">
+        <span>47</span>
+        <span>2026.08.21</span>
+        <span>2026.08.05</span>
+        <span>$7,138</span>
+        <span>$7,138</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- 立即繳款選單 -->
+  <div
+    id="paymentMenuOverlay"
+    class="payment-overlay"
+    onclick="closePaymentMenu()"
+  >
+
+    <div
+      class="payment-menu"
+      onclick="event.stopPropagation()"
+    >
+
+      <button>
+        超商繳款
+      </button>
+
+      <button>
+        郵局繳款
+      </button>
+
+      <button>
+        網路銀行/ATM繳款
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
   <section id="question" class="page">
     <h1>輕鬆問</h1>
@@ -516,6 +1055,44 @@
 
       button.classList.add('active');
     }
+    function openHistory() {
+
+  document
+    .getElementById("historyOverlay")
+    .style
+    .display = "block";
+
+}
+
+
+function closeHistory() {
+
+  document
+    .getElementById("historyOverlay")
+    .style
+    .display = "none";
+
+}
+
+
+function openPaymentMenu() {
+
+  document
+    .getElementById("paymentMenuOverlay")
+    .style
+    .display = "block";
+
+}
+
+
+function closePaymentMenu() {
+
+  document
+    .getElementById("paymentMenuOverlay")
+    .style
+    .display = "none";
+
+}
   </script>
 </body>
 </html>
