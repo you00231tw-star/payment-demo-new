@@ -764,6 +764,40 @@
 
   color: #111111;
 }
+    /* =========================
+   延滯費用
+========================= */
+
+.late-fee-notice {
+
+  height: 78px;
+
+  background: #eef8e3;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 6px;
+
+  text-align: center;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+}
+
+
+.late-fee-empty {
+
+  min-height: 500px;
+
+  background: #ffffff;
+}
   </style>
 </head>
 
@@ -883,22 +917,51 @@
   </div>
 
   <!-- 分頁 -->
-  <div class="payment-tabs">
+ <div class="payment-tabs">
 
-    <div class="payment-tab active">
-      繳款中心
-    </div>
+  <div
+    id="centerTab"
+    class="payment-tab active"
+    onclick="showPaymentCenter()"
+  >
+    繳款中心
+  </div>
 
-    <div class="payment-tab">
-      延滯費用
-    </div>
+  <div
+    id="lateTab"
+    class="payment-tab"
+    onclick="showLateFee()"
+  >
+    延滯費用
+  </div>
+
+</div>
+
+  
+  <div id="paymentCenterContent">
+    <!-- 延滯費用內容 -->
+
+<div
+  id="lateFeeContent"
+  style="display: none;"
+>
+
+  <div class="late-fee-notice">
+
+    繳費後不需來電或提供收據，
+    後續由系統自動銷帳，謝謝
 
   </div>
 
+  <div class="late-fee-empty"></div>
+
+</div>
   <!-- 提醒 -->
   <div class="payment-notice">
     銷帳約 3 個工作天，請保留憑證
   </div>
+
+    
 
 
   <!-- 機車卡片 -->
@@ -948,6 +1011,8 @@
     </div>
 
   </div>
+
+     </div>
 
 
   <!-- 繳款紀錄 -->
@@ -1091,6 +1156,61 @@ function closePaymentMenu() {
     .getElementById("paymentMenuOverlay")
     .style
     .display = "none";
+
+}
+    function showPaymentCenter() {
+
+  document
+    .getElementById("paymentCenterContent")
+    .style
+    .display = "block";
+
+
+  document
+    .getElementById("lateFeeContent")
+    .style
+    .display = "none";
+
+
+  document
+    .getElementById("centerTab")
+    .classList
+    .add("active");
+
+
+  document
+    .getElementById("lateTab")
+    .classList
+    .remove("active");
+
+}
+
+
+
+function showLateFee() {
+
+  document
+    .getElementById("paymentCenterContent")
+    .style
+    .display = "none";
+
+
+  document
+    .getElementById("lateFeeContent")
+    .style
+    .display = "block";
+
+
+  document
+    .getElementById("centerTab")
+    .classList
+    .remove("active");
+
+
+  document
+    .getElementById("lateTab")
+    .classList
+    .add("active");
 
 }
   </script>
