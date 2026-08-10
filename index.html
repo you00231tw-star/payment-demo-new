@@ -892,6 +892,236 @@
 
   font-weight: 400;
 }
+    /* =========================
+   個人
+========================= */
+
+#profile {
+
+  padding: 0 0 110px 0;
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  position: relative;
+}
+
+
+/* 粉紅色頂部 */
+
+.profile-header {
+
+  height: 145px;
+
+  background: #f4bcbc;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  padding-bottom: 26px;
+
+  color: #205087;
+
+  font-size: 30px;
+
+  font-weight: bold;
+}
+
+
+/* 選單內容 */
+
+.profile-content {
+
+  padding:
+
+    52px 45px 0 45px;
+}
+
+
+/* 每一列 */
+
+.profile-item {
+
+  height: 122px;
+
+  border-bottom:
+
+    3px solid #111111;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #205087;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* 綠色箭頭 */
+
+.profile-arrow {
+
+  color: #7ab31e;
+
+  font-size: 52px;
+
+  line-height: 1;
+
+  font-weight: 400;
+}
+
+
+/* Version */
+
+.profile-version {
+
+  position: absolute;
+
+  right: 10px;
+
+  bottom: 105px;
+
+  color: #aaaaaa;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   輕鬆付編輯器
+========================= */
+
+.payment-editor {
+
+  display: none;
+
+  position: fixed;
+
+  z-index: 1000;
+
+  top: 0;
+
+  left: 50%;
+
+  transform:
+
+    translateX(-50%);
+
+  width: 100%;
+
+  max-width: 430px;
+
+  height: 100%;
+
+  background: #ffffff;
+
+  overflow-y: auto;
+}
+
+
+/* 編輯器標題 */
+
+.editor-header {
+
+  height: 100px;
+
+  padding-top: 35px;
+
+  background: #f4bcbc;
+
+  display: grid;
+
+  grid-template-columns:
+
+    80px 1fr 80px;
+
+  align-items: center;
+
+  text-align: center;
+
+  color: #205087;
+
+  font-size: 22px;
+
+  font-weight: bold;
+}
+
+
+.editor-header button {
+
+  border: none;
+
+  background: transparent;
+
+  color: #205087;
+
+  font-size: 16px;
+
+  font-weight: bold;
+}
+
+
+/* 編輯內容 */
+
+.editor-content {
+
+  padding: 30px;
+}
+
+
+.editor-content label {
+
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: #444444;
+
+  font-size: 16px;
+
+  font-weight: bold;
+}
+
+
+.editor-content input {
+
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 8px;
+
+  padding: 0 12px;
+
+  border:
+
+    1px solid #cccccc;
+
+  border-radius: 8px;
+
+  background: #fafafa;
+
+  font-size: 17px;
+}
   </style>
 </head>
 
@@ -1049,25 +1279,29 @@
       機車
     </div>
 
-    <div class="vehicle-info">
-      申請人：曾＊霖
-    </div>
+<div class="vehicle-info">
+  申請人：<span id="displayName">曾＊霖</span>
+</div>
 
-    <div class="vehicle-info">
-      車號：MBL-20**
-    </div>
+<div class="vehicle-info">
+  車號：<span id="displayPlate">MBL-20**</span>
+</div>
 
-    <div class="vehicle-info">
-      本期期數：48 / 60期
-    </div>
+<div class="vehicle-info">
+  本期期數：
+  <span id="displayCurrentPeriod">48</span>
+  /
+  <span id="displayTotalPeriod">60</span>期
+</div>
 
-    <div class="vehicle-info">
-      本期應繳金額：$7,138
-    </div>
+<div class="vehicle-info">
+  本期應繳金額：$<span id="displayAmount">7,138</span>
+</div>
 
-    <div class="payment-deadline">
-      繳款截止日：2026.09.21
-    </div>
+<div class="payment-deadline">
+  繳款截止日：
+  <span id="displayDueDate">2026.09.21</span>
+</div>
 
 
     <div class="payment-buttons">
@@ -1220,9 +1454,144 @@
 
 </section>
 
-  <section id="profile" class="page">
-    <h1>個人</h1>
-  </section>
+<section id="profile" class="page">
+
+  <!-- 粉紅色標題 -->
+  <div class="profile-header">
+    個人
+  </div>
+
+
+  <!-- 選單 -->
+  <div class="profile-content">
+
+    <div class="profile-item">
+      <span>案件管理</span>
+      <span class="profile-arrow">〉</span>
+    </div>
+
+    <div class="profile-item">
+      <span>偏好設定</span>
+      <span class="profile-arrow">〉</span>
+    </div>
+
+    <div class="profile-item">
+      <span>關於說明</span>
+      <span class="profile-arrow">〉</span>
+    </div>
+
+    <div
+      class="profile-item"
+      onclick="openPaymentEditor()"
+    >
+      <span>登出</span>
+      <span class="profile-arrow">〉</span>
+    </div>
+
+  </div>
+
+
+  <div class="profile-version">
+    Version: 2.1.36
+  </div>
+
+
+  <!-- 輕鬆付資料編輯器 -->
+
+  <div
+    id="paymentEditor"
+    class="payment-editor"
+  >
+
+    <div class="editor-header">
+
+      <button onclick="closePaymentEditor()">
+        取消
+      </button>
+
+      <span>
+        編輯輕鬆付
+      </span>
+
+      <button onclick="savePaymentData()">
+        儲存
+      </button>
+
+    </div>
+
+
+    <div class="editor-content">
+
+      <label>
+        申請人
+
+        <input
+          id="editName"
+          type="text"
+          value="曾＊霖"
+        >
+      </label>
+
+
+      <label>
+        車號
+
+        <input
+          id="editPlate"
+          type="text"
+          value="MBL-20**"
+        >
+      </label>
+
+
+      <label>
+        目前期數
+
+        <input
+          id="editCurrentPeriod"
+          type="number"
+          value="48"
+        >
+      </label>
+
+
+      <label>
+        總期數
+
+        <input
+          id="editTotalPeriod"
+          type="number"
+          value="60"
+        >
+      </label>
+
+
+      <label>
+        本期應繳金額
+
+        <input
+          id="editAmount"
+          type="number"
+          value="7138"
+        >
+      </label>
+
+
+      <label>
+        繳款截止日
+
+        <input
+          id="editDueDate"
+          type="text"
+          value="2026.09.21"
+        >
+      </label>
+
+    </div>
+
+  </div>
+
+</section>
 
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="showPage('home', this)">首頁</button>
@@ -1339,7 +1708,215 @@ function showLateFee() {
     .add("active");
 
 }
+function openPaymentEditor() {
 
+  document
+    .getElementById("paymentEditor")
+    .style
+    .display = "block";
+
+}
+
+
+
+function closePaymentEditor() {
+
+  document
+    .getElementById("paymentEditor")
+    .style
+    .display = "none";
+
+}
+
+
+
+function savePaymentData() {
+
+  const name =
+    document.getElementById("editName").value;
+
+  const plate =
+    document.getElementById("editPlate").value;
+
+  const currentPeriod =
+    document.getElementById("editCurrentPeriod").value;
+
+  const totalPeriod =
+    document.getElementById("editTotalPeriod").value;
+
+  const amount =
+    document.getElementById("editAmount").value;
+
+  const dueDate =
+    document.getElementById("editDueDate").value;
+
+
+  /* 更新輕鬆付畫面 */
+
+  document
+    .getElementById("displayName")
+    .textContent = name;
+
+  document
+    .getElementById("displayPlate")
+    .textContent = plate;
+
+  document
+    .getElementById("displayCurrentPeriod")
+    .textContent = currentPeriod;
+
+  document
+    .getElementById("displayTotalPeriod")
+    .textContent = totalPeriod;
+
+  document
+    .getElementById("displayAmount")
+    .textContent =
+      Number(amount).toLocaleString();
+
+  document
+    .getElementById("displayDueDate")
+    .textContent = dueDate;
+
+
+  /* 儲存在手機 */
+
+  const paymentData = {
+
+    name: name,
+
+    plate: plate,
+
+    currentPeriod:
+      currentPeriod,
+
+    totalPeriod:
+      totalPeriod,
+
+    amount:
+      amount,
+
+    dueDate:
+      dueDate
+
+  };
+
+
+  localStorage.setItem(
+
+    "paymentData",
+
+    JSON.stringify(paymentData)
+
+  );
+
+
+  closePaymentEditor();
+
+}
+
+
+
+/* 網頁開啟時讀取資料 */
+
+window.addEventListener(
+  "load",
+  function() {
+
+    const savedData =
+      localStorage.getItem(
+        "paymentData"
+      );
+
+
+    if (!savedData) {
+
+      return;
+
+    }
+
+
+    const paymentData =
+      JSON.parse(savedData);
+
+
+    document
+      .getElementById("displayName")
+      .textContent =
+        paymentData.name;
+
+
+    document
+      .getElementById("displayPlate")
+      .textContent =
+        paymentData.plate;
+
+
+    document
+      .getElementById("displayCurrentPeriod")
+      .textContent =
+        paymentData.currentPeriod;
+
+
+    document
+      .getElementById("displayTotalPeriod")
+      .textContent =
+        paymentData.totalPeriod;
+
+
+    document
+      .getElementById("displayAmount")
+      .textContent =
+        Number(
+          paymentData.amount
+        ).toLocaleString();
+
+
+    document
+      .getElementById("displayDueDate")
+      .textContent =
+        paymentData.dueDate;
+
+
+    /* 編輯欄也同步 */
+
+    document
+      .getElementById("editName")
+      .value =
+        paymentData.name;
+
+
+    document
+      .getElementById("editPlate")
+      .value =
+        paymentData.plate;
+
+
+    document
+      .getElementById("editCurrentPeriod")
+      .value =
+        paymentData.currentPeriod;
+
+
+    document
+      .getElementById("editTotalPeriod")
+      .value =
+        paymentData.totalPeriod;
+
+
+    document
+      .getElementById("editAmount")
+      .value =
+        paymentData.amount;
+
+
+    document
+      .getElementById("editDueDate")
+      .value =
+        paymentData.dueDate;
+
+  }
+);
   </script>
 </body>
 </html>
