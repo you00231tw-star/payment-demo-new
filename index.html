@@ -1711,6 +1711,69 @@
 
   font-size: 16px;
 }
+
+    /* =========================
+   郵局 / ATM 圖片頁
+========================= */
+
+.pay-image-page {
+
+  display: none;
+
+  position: fixed;
+
+  z-index: 950;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  max-width: 430px;
+
+  height: 100vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  padding-bottom: 110px;
+}
+
+
+.pay-image {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+}
+
+
+/* 左上角透明返回區 */
+
+.pay-image-back {
+
+  position: absolute;
+
+  top: 95px;
+
+  left: 10px;
+
+  width: 55px;
+
+  height: 55px;
+
+  border: none;
+
+  background: transparent;
+
+  z-index: 5;
+}
   </style>
 </head>
 
@@ -2183,13 +2246,13 @@
   超商繳款
 </button>
 
-      <button>
-        郵局繳款
-      </button>
+<button onclick="openPostPayment()">
+  郵局繳款
+</button>
 
-      <button>
-        網路銀行/ATM繳款
-      </button>
+<button onclick="openAtmPayment()">
+  網路銀行/ATM繳款
+</button>
 
     </div>
 
@@ -2323,6 +2386,45 @@
     </p>
 
   </div>
+
+</div>
+
+  <!-- =========================
+     郵局繳款圖片頁
+========================= -->
+
+<div id="postPaymentPage" class="pay-image-page">
+
+  <button
+    class="pay-image-back"
+    onclick="closePostPayment()"
+  ></button>
+
+  <img
+    src="post_payment.png"
+    class="pay-image"
+    alt="郵局繳款"
+  >
+
+</div>
+
+
+<!-- =========================
+     ATM圖片頁
+========================= -->
+
+<div id="atmPaymentPage" class="pay-image-page">
+
+  <button
+    class="pay-image-back"
+    onclick="closeAtmPayment()"
+  ></button>
+
+  <img
+    src="atm_payment.png"
+    class="pay-image"
+    alt="ATM轉帳"
+  >
 
 </div>
 
@@ -3257,6 +3359,49 @@ function nextStoreBill() {
     .getElementById("storePeriodInfo")
     .textContent =
       storeBill + "/60";
+
+}
+
+    function openPostPayment() {
+
+  closePaymentMenu();
+
+  document
+    .getElementById("postPaymentPage")
+    .style
+    .display = "block";
+
+}
+
+
+function closePostPayment() {
+
+  document
+    .getElementById("postPaymentPage")
+    .style
+    .display = "none";
+
+}
+
+
+function openAtmPayment() {
+
+  closePaymentMenu();
+
+  document
+    .getElementById("atmPaymentPage")
+    .style
+    .display = "block";
+
+}
+
+
+function closeAtmPayment() {
+
+  document
+    .getElementById("atmPaymentPage")
+    .style
+    .display = "none";
 
 }
   </script>
