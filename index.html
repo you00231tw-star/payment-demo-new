@@ -2110,6 +2110,47 @@ document.getElementById(
     historyData.paidAmount2
   ).toLocaleString();
 
+/* 更新繳款紀錄 */
+
+document.getElementById("historyPeriod1").textContent =
+  document.getElementById("editHistoryPeriod1").value;
+
+document.getElementById("historyDue1").textContent =
+  document.getElementById("editHistoryDue1").value;
+
+document.getElementById("historyPaidDate1").textContent =
+  document.getElementById("editHistoryPaidDate1").value;
+
+document.getElementById("historyDueAmount1").textContent =
+  Number(
+    document.getElementById("editHistoryDueAmount1").value
+  ).toLocaleString();
+
+document.getElementById("historyPaidAmount1").textContent =
+  Number(
+    document.getElementById("editHistoryPaidAmount1").value
+  ).toLocaleString();
+
+
+document.getElementById("historyPeriod2").textContent =
+  document.getElementById("editHistoryPeriod2").value;
+
+document.getElementById("historyDue2").textContent =
+  document.getElementById("editHistoryDue2").value;
+
+document.getElementById("historyPaidDate2").textContent =
+  document.getElementById("editHistoryPaidDate2").value;
+
+document.getElementById("historyDueAmount2").textContent =
+  Number(
+    document.getElementById("editHistoryDueAmount2").value
+  ).toLocaleString();
+
+document.getElementById("historyPaidAmount2").textContent =
+  Number(
+    document.getElementById("editHistoryPaidAmount2").value
+  ).toLocaleString();
+  
   closePaymentEditor();
 
 }
