@@ -1090,9 +1090,39 @@
 
 </section>
 
-  <section id="question" class="page">
-    <h1>輕鬆問</h1>
-  </section>
+<section id="question" class="page">
+
+  <!-- 上方藍色區塊 -->
+  <div class="question-header">
+    輕鬆問
+  </div>
+
+  <!-- 下面內容 -->
+  <div class="question-content">
+
+    <div class="question-item">
+      <div class="question-text">客服中心</div>
+      <div class="question-arrow">〉</div>
+    </div>
+
+    <div class="question-item">
+      <div class="question-text">變更貸款資料</div>
+      <div class="question-arrow">〉</div>
+    </div>
+
+    <div class="question-item">
+      <div class="question-text">結清金額試算</div>
+      <div class="question-arrow">〉</div>
+    </div>
+
+    <div class="question-item">
+      <div class="question-text">線上文件申請</div>
+      <div class="question-arrow">〉</div>
+    </div>
+
+  </div>
+
+</section>
 
   <section id="profile" class="page">
     <h1>個人</h1>
@@ -1212,6 +1242,100 @@ function showLateFee() {
     .classList
     .add("active");
 
+}
+    /* =========================
+   輕鬆問
+========================= */
+
+#question {
+
+  padding: 0 0 110px 0;
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  min-height: 100vh;
+
+  background: #f2f2f2;
+
+  text-align: left;
+}
+
+
+/* 上方藍色區塊 */
+
+.question-header {
+
+  height: 145px;
+
+  background: #b9daf5;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  padding-bottom: 26px;
+
+  color: #184d84;
+
+  font-size: 30px;
+
+  font-weight: bold;
+}
+
+
+/* 內容區 */
+
+.question-content {
+
+  padding: 52px 45px 0 45px;
+}
+
+
+/* 每一列 */
+
+.question-item {
+
+  height: 122px;
+
+  border-bottom: 3px solid #111111;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* 左邊文字 */
+
+.question-text {
+
+  color: #1f4f8b;
+
+  font-size: 29px;
+
+  font-weight: bold;
+}
+
+
+/* 右邊箭頭 */
+
+.question-arrow {
+
+  color: #7bb21f;
+
+  font-size: 52px;
+
+  line-height: 1;
+
+  font-weight: 400;
 }
   </script>
 </body>
