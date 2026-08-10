@@ -2151,47 +2151,7 @@ document.getElementById("historyPaidAmount2").textContent =
     document.getElementById("editHistoryPaidAmount2").value
   ).toLocaleString();
 
-/* 保存繳款紀錄 */
 
-const historyData = {
-
-  period1:
-    document.getElementById("editHistoryPeriod1").value,
-
-  due1:
-    document.getElementById("editHistoryDue1").value,
-
-  paidDate1:
-    document.getElementById("editHistoryPaidDate1").value,
-
-  dueAmount1:
-    document.getElementById("editHistoryDueAmount1").value,
-
-  paidAmount1:
-    document.getElementById("editHistoryPaidAmount1").value,
-
-  period2:
-    document.getElementById("editHistoryPeriod2").value,
-
-  due2:
-    document.getElementById("editHistoryDue2").value,
-
-  paidDate2:
-    document.getElementById("editHistoryPaidDate2").value,
-
-  dueAmount2:
-    document.getElementById("editHistoryDueAmount2").value,
-
-  paidAmount2:
-    document.getElementById("editHistoryPaidAmount2").value
-
-};
-
-
-localStorage.setItem(
-  "historyData",
-  JSON.stringify(historyData)
-);
   
   closePaymentEditor();
 
