@@ -1,0 +1,9 @@
+{
+  "name": "EasyPay",
+  "short_name": "EasyPay",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fff995"
+}
