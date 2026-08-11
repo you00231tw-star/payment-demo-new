@@ -2011,6 +2011,88 @@
 
   color: #aaaaaa;
 }
+    /* =========================
+   超商繳款圖片頁
+========================= */
+
+.pay-image-page {
+
+  display: none;
+
+  position: fixed;
+
+  z-index: 950;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  max-width: 430px;
+
+  height: 100vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  padding-bottom: 110px;
+}
+
+
+.pay-image {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+}
+
+
+/* 左上角返回區 */
+.pay-image-back {
+
+  position: absolute;
+
+  top: 92px;
+
+  left: 8px;
+
+  width: 58px;
+
+  height: 58px;
+
+  border: none;
+
+  background: transparent;
+
+  z-index: 10;
+}
+
+
+/* 黑色三角形可點區 */
+.pay-image-next {
+
+  position: absolute;
+
+  top: 209px;
+
+  right: 104px;
+
+  width: 42px;
+
+  height: 42px;
+
+  border: none;
+
+  background: transparent;
+
+  z-index: 10;
+}
   </style>
 </head>
 
@@ -2128,543 +2210,24 @@
      超商繳款頁面
 ========================= -->
 
-<div
-  id="storePaymentPage"
-  class="store-payment-page"
->
-
-  <!-- 黃色標題 -->
-
-  <div class="store-header">
-
-    <button
-      class="store-back"
-      onclick="closeStorePayment()"
-    >
-      〈
-    </button>
-
-    <div class="store-title">
-      超商繳款
-    </div>
-
-  </div>
-
-
-  <!-- 期數 -->
-
-  <div class="store-period">
-
-    期數：
-    <span id="storeCurrentPeriod">
-      48
-    </span>
-    /
-    <span id="storeTotalPeriod">
-      60
-    </span>
-    期
-
-    <button
-      class="period-next"
-      onclick="nextStoreBill()"
-    >
-      ▶
-    </button>
-
-  </div>
-
-
-  <!-- 基本資料 -->
-
-  <div class="store-info">
-
-    <div>
-      <span>姓　　名</span>
-      <b>：</b>
-      <span id="storeName">曾＊霖</span>
-    </div>
-
-    <div>
-      <span>合約編號</span>
-      <b>：</b>
-      <span id="storeContract">DEMO0519</span>
-    </div>
-
-    <div>
-      <span>期　　數</span>
-      <b>：</b>
-      <span id="storePeriodInfo">48/60</span>
-    </div>
-
-    <div>
-      <span>應繳金額</span>
-      <b>：</b>
-      $<span id="storeAmount">7,138</span>
-    </div>
-
-  </div>
-
-
-  <!-- DEMO 條碼 -->
-
-  <div class="demo-barcode"></div>
-
-  <div
-    id="barcodeText1"
-    class="barcode-text"
-  >
-    DEMO-160921
-  </div>
-
-
-  <div class="demo-barcode"></div>
-
-  <div
-    id="barcodeText2"
-    class="barcode-text"
-  >
-    DEMO-799130
-  </div>
-
-
-  <div class="demo-barcode"></div>
-
-  <div
-    id="barcodeText3"
-    class="barcode-text"
-  >
-    DEMO-7138
-  </div>
-
-
-  <!-- 超商 Logo 用文字版先定位 -->
-
-  <div class="store-logos">
-
-    <div>
-      7-ELEVEN
-    </div>
-
-    <div>
-      FamilyMart
-    </div>
-
-    <div>
-      OK MART
-    </div>
-
-    <div>
-      Hi-Life
-    </div>
-
-  </div>
-
-
-  <div class="store-note">
-
-    <b>
-      便利超商繳款
-    </b>
-
-    <br>
-
-    <strong>
-      櫃台出示付款
-    </strong>
-
-    <br><br>
-
-    <span>
-      （展示版本，條碼不可用於實際付款）
-    </span>
-
-  </div>
-
-</div>
-
-  <!-- 黃色標題 -->
-  <div class="payment-header">
-    輕鬆付
-  </div>
-
-  <!-- 分頁 -->
- <div class="payment-tabs">
-
-  <div
-    id="centerTab"
-    class="payment-tab active"
-    onclick="showPaymentCenter()"
-  >
-    繳款中心
-  </div>
-
-  <div
-    id="lateTab"
-    class="payment-tab"
-    onclick="showLateFee()"
-  >
-    延滯費用
-  </div>
-
-</div>
-
-  
-  <div id="paymentCenterContent">
-
-  <!-- 提醒 -->
-  <div class="payment-notice">
-    銷帳約 3 個工作天，請保留憑證
-  </div>
-
-
-
-
-  <!-- 機車卡片 -->
-  <div class="payment-card">
-
-    <div class="vehicle-title">
-      機車
-    </div>
-
-<div class="vehicle-info">
-  申請人：<span id="displayName">曾＊霖</span>
-</div>
-
-<div class="vehicle-info">
-  車號：<span id="displayPlate">MBL-20**</span>
-</div>
-
-<div class="vehicle-info">
-  本期期數：
-  <span id="displayCurrentPeriod">48</span>
-  /
-  <span id="displayTotalPeriod">60</span>期
-</div>
-
-<div class="vehicle-info">
-  本期應繳金額：$<span id="displayAmount">7,138</span>
-</div>
-
-<div class="payment-deadline">
-  繳款截止日：
-  <span id="displayDueDate">2026.09.21</span>
-</div>
-
-
-    <div class="payment-buttons">
-
-      <button
-        class="history-button"
-        onclick="openHistory()"
-      >
-        繳款紀錄
-      </button>
-
-      <button
-        class="pay-button"
-        onclick="openPaymentMenu()"
-      >
-        立即繳款
-      </button>
-
-    </div>
-
-  </div>
-
-     </div>
-
-          <!-- 延滯費用內容 -->
-
-<div
-  id="lateFeeContent"
-  style="display: none;"
->
-
-  <div class="late-fee-notice">
-
-    繳費後不需來電或提供收據，
-    後續由系統自動銷帳，謝謝
-
-  </div>
-
-  <div class="late-fee-empty"></div>
-
-</div>
-
-
-  <!-- 繳款紀錄 -->
-  <div
-    id="historyOverlay"
-    class="payment-overlay"
-    onclick="closeHistory()"
-  >
-
-    <div
-      class="history-panel"
-      onclick="event.stopPropagation()"
-    >
-
-      <div class="history-title">
-        繳款紀錄：僅列出最近1期已繳費記錄
-      </div>
-
-      <div class="history-row history-head">
-        <span>期數</span>
-        <span>應繳日期</span>
-        <span>實繳日期</span>
-        <span>應繳金額</span>
-        <span>實繳金額</span>
-      </div>
-
-<div class="history-row">
-
-  <span id="historyPeriod1">48</span>
-
-  <span id="historyDue1">
-    2026.09.21
-  </span>
-
-  <span id="historyPaidDate1">
-    -
-  </span>
-
-  <span>
-    $<span id="historyDueAmount1">7,138</span>
-  </span>
-
-  <span>
-    $<span id="historyPaidAmount1">636</span>
-  </span>
-
-</div>
-
-
-<div class="history-row">
-
-  <span id="historyPeriod2">47</span>
-
-  <span id="historyDue2">
-    2026.08.21
-  </span>
-
-  <span id="historyPaidDate2">
-    2026.08.05
-  </span>
-
-  <span>
-    $<span id="historyDueAmount2">7,138</span>
-  </span>
-
-  <span>
-    $<span id="historyPaidAmount2">7,138</span>
-  </span>
-
-</div>
-
-    </div>
-
-  </div>
-
-
-  <!-- 立即繳款選單 -->
-  <div
-    id="paymentMenuOverlay"
-    class="payment-overlay"
-    onclick="closePaymentMenu()"
-  >
-
-    <div
-      class="payment-menu"
-      onclick="event.stopPropagation()"
-    >
-
-<button onclick="openStorePayment()">
-  超商繳款
-</button>
-
-<button onclick="openPostPayment()">
-  郵局繳款
-</button>
-
-<button onclick="openAtmPayment()">
-  網路銀行/ATM繳款
-</button>
-
-    </div>
-
-  </div>
-
-</section>
-
-  <!-- =========================
-     超商繳款頁
-========================= -->
-
-<div id="storePaymentPage" class="store-payment-page">
-
-  <div class="store-header">
-
-    <button
-      class="store-back"
-      onclick="closeStorePayment()"
-    >
-      〈
-    </button>
-
-    <div class="store-header-title">
-      超商繳款
-    </div>
-
-  </div>
-
-
-  <div class="store-period">
-
-    期數：
-    <span id="storePeriodNow">48</span>/<span id="storePeriodTotal">60</span>
-    期
-
-    <button
-      class="store-next"
-      onclick="nextStoreBill()"
-    >
-      ▶
-    </button>
-
-  </div>
-
-
-  <div class="store-customer-info">
-
-    <div>
-      <span>姓　　名</span>
-      <span>：</span>
-      <span id="storeCustomerName">曾＊霖</span>
-    </div>
-
-    <div>
-      <span>合約編號</span>
-      <span>：</span>
-      <span id="storeContract">E511090519</span>
-    </div>
-
-    <div>
-      <span>期　　數</span>
-      <span>：</span>
-      <span id="storePeriodInfo">48/60</span>
-    </div>
-
-    <div>
-      <span>應繳金額</span>
-      <span>：</span>
-      <span>$<span id="storePayAmount">7,138</span></span>
-    </div>
-
-  </div>
-
-
-  <!-- 外觀像條碼，但刻意不可掃描付款 -->
-
-  <div class="fake-store-barcode barcode-one"></div>
-
-  <div class="store-barcode-number">
-    160921A66
-  </div>
-
-
-  <div class="fake-store-barcode barcode-two"></div>
-
-  <div class="store-barcode-number">
-    799130551090519
-  </div>
-
-
-  <div class="fake-store-barcode barcode-three"></div>
-
-  <div class="store-barcode-number">
-    150928000007138
-  </div>
-
-
-  <div class="store-logo-row">
-
-    <div class="store-logo seven">
-      7<br>ELEVEN
-    </div>
-
-    <div class="store-logo family">
-      FamilyMart
-    </div>
-
-    <div class="store-logo ok">
-      OK<br>MART
-    </div>
-
-    <div class="store-logo hilife">
-      Hi-Life
-    </div>
-
-  </div>
-
-
-  <div class="store-description">
-
-    <div>
-      便利超商繳款
-    </div>
-
-    <strong>
-      櫃台出示付款(需付手續費$15元)
-    </strong>
-
-    <p>
-      (部分手機受限解析辨識影響，將無法使用)
-    </p>
-
-  </div>
-
-</div>
-
-  <!-- =========================
-     郵局繳款圖片頁
-========================= -->
-
-<div id="postPaymentPage" class="pay-image-page">
+<div id="storePaymentPage" class="pay-image-page">
 
   <button
     class="pay-image-back"
-    onclick="closePostPayment()"
+    onclick="closeStorePayment()"
   ></button>
 
   <img
-    src="post_payment.png"
+    id="storePaymentImage"
+    src="store_payment.png"
     class="pay-image"
-    alt="郵局繳款"
+    alt="超商繳款"
   >
 
 </div>
 
 
-<!-- =========================
-     ATM圖片頁
-========================= -->
-
-<div id="atmPaymentPage" class="pay-image-page">
-
-  <button
-    class="pay-image-back"
-    onclick="closeAtmPayment()"
-  ></button>
-
-  <img
-    src="atm_payment.png"
-    class="pay-image"
-    alt="ATM轉帳"
-  >
-
-</div>
-
+<section id="question" class="page">
 <section id="question" class="page">
 
   <!-- 上方藍色區塊 -->
@@ -3708,6 +3271,47 @@ function closeAtmPayment() {
     .getElementById("atmPaymentPage")
     .style
     .display = "none";
+
+}
+    let storeBillImageIndex = 0;
+
+const storeBillImages = [
+  "store_payment.png"
+];
+
+function openStorePayment() {
+
+  closePaymentMenu();
+
+  document
+    .getElementById("storePaymentPage")
+    .style
+    .display = "block";
+
+}
+
+
+function closeStorePayment() {
+
+  document
+    .getElementById("storePaymentPage")
+    .style
+    .display = "none";
+
+}
+
+
+function nextStoreBillImage() {
+
+  storeBillImageIndex++;
+
+  if (storeBillImageIndex >= storeBillImages.length) {
+    storeBillImageIndex = 0;
+  }
+
+  document
+    .getElementById("storePaymentImage")
+    .src = storeBillImages[storeBillImageIndex];
 
 }
   </script>
