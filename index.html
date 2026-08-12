@@ -2204,13 +2204,251 @@
 </section>
   
 
-<section id="payment" class="page">
-
-  <!-- =========================
-     超商繳款頁面
+<!-- =========================
+     輕鬆付
 ========================= -->
 
-<div id="storePaymentPage" class="pay-image-page">
+<section id="payment" class="page">
+
+  <div class="payment-header">
+    輕鬆付
+  </div>
+
+
+  <!-- 繳款中心 / 延滯費用 -->
+
+  <div class="payment-tabs">
+
+    <div
+      id="centerTab"
+      class="payment-tab active"
+      onclick="showPaymentCenter()"
+    >
+      繳款中心
+    </div>
+
+    <div
+      id="lateTab"
+      class="payment-tab"
+      onclick="showLateFee()"
+    >
+      延滯費用
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       繳款中心
+  ========================= -->
+
+  <div id="paymentCenterContent">
+
+    <div class="payment-notice">
+      銷帳約 3 個工作天，請保留憑證
+    </div>
+
+
+    <div class="payment-card">
+
+      <div class="vehicle-title">
+        機車
+      </div>
+
+      <div class="vehicle-info">
+        申請人：
+        <span id="displayName">曾＊霖</span>
+      </div>
+
+      <div class="vehicle-info">
+        車號：
+        <span id="displayPlate">MBL-20**</span>
+      </div>
+
+      <div class="vehicle-info">
+        本期期數：
+        <span id="displayCurrentPeriod">48</span>
+        /
+        <span id="displayTotalPeriod">60</span>期
+      </div>
+
+      <div class="vehicle-info">
+        本期應繳金額：
+        $<span id="displayAmount">7,138</span>
+      </div>
+
+      <div class="payment-deadline">
+        繳款截止日：
+        <span id="displayDueDate">
+          2026.09.21
+        </span>
+      </div>
+
+
+      <div class="payment-buttons">
+
+        <button
+          class="history-button"
+          onclick="openHistory()"
+        >
+          繳款紀錄
+        </button>
+
+        <button
+          class="pay-button"
+          onclick="openPaymentMenu()"
+        >
+          立即繳款
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       延滯費用
+  ========================= -->
+
+  <div
+    id="lateFeeContent"
+    style="display:none;"
+  >
+
+    <div class="late-fee-notice">
+      繳費後不需來電或提供收據，後續由系統自動銷帳，謝謝
+    </div>
+
+    <div class="late-fee-empty"></div>
+
+  </div>
+
+
+  <!-- =========================
+       繳款紀錄
+  ========================= -->
+
+  <div
+    id="historyOverlay"
+    class="payment-overlay"
+    onclick="closeHistory()"
+  >
+
+    <div
+      class="history-panel"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="history-title">
+        繳款紀錄：僅列出最近1期已繳費記錄
+      </div>
+
+
+      <div class="history-row history-head">
+
+        <span>期數</span>
+        <span>應繳日期</span>
+        <span>實繳日期</span>
+        <span>應繳金額</span>
+        <span>實繳金額</span>
+
+      </div>
+
+
+      <div class="history-row">
+
+        <span id="historyPeriod1">48</span>
+
+        <span id="historyDue1">
+          2026.09.21
+        </span>
+
+        <span id="historyPaidDate1">
+          -
+        </span>
+
+        <span>
+          $<span id="historyDueAmount1">7,138</span>
+        </span>
+
+        <span>
+          $<span id="historyPaidAmount1">636</span>
+        </span>
+
+      </div>
+
+
+      <div class="history-row">
+
+        <span id="historyPeriod2">47</span>
+
+        <span id="historyDue2">
+          2026.08.21
+        </span>
+
+        <span id="historyPaidDate2">
+          2026.08.05
+        </span>
+
+        <span>
+          $<span id="historyDueAmount2">7,138</span>
+        </span>
+
+        <span>
+          $<span id="historyPaidAmount2">7,138</span>
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       立即繳款
+  ========================= -->
+
+  <div
+    id="paymentMenuOverlay"
+    class="payment-overlay"
+    onclick="closePaymentMenu()"
+  >
+
+    <div
+      class="payment-menu"
+      onclick="event.stopPropagation()"
+    >
+
+      <button onclick="openStorePayment()">
+        超商繳款
+      </button>
+
+      <button onclick="openPostPayment()">
+        郵局繳款
+      </button>
+
+      <button onclick="openAtmPayment()">
+        網路銀行/ATM繳款
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     超商繳款圖片頁
+========================= -->
+
+<div
+  id="storePaymentPage"
+  class="pay-image-page"
+>
 
   <button
     class="pay-image-back"
@@ -2227,7 +2465,10 @@
 </div>
 
 
-<section id="question" class="page">
+<!-- =========================
+     輕鬆問
+========================= -->
+
 <section id="question" class="page">
 
   <!-- 上方藍色區塊 -->
